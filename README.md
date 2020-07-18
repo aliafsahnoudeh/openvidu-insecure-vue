@@ -9,25 +9,25 @@ A small and easy-to-use sample created with vue.js to start working with open vi
 npm i
 ```
 2. Run a server to work with:
-<br/>
- This project is just a web client and you need to run kurento media server (KMS) and open vidu on top of that.
-<br/>
+This project is just a web client and you need to run kurento media server (KMS) and open vidu on top of that.
+
 - For development:
 <br/>
-There is an easy solution to run openvidu server + KMS with a docker.
-https://hub.docker.com/r/openvidu/openvidu-server-kms
+    There is an easy solution to run openvidu server + KMS with a docker.
+<br/>
+    https://hub.docker.com/r/openvidu/openvidu-server-kms
 <br />
-Note: Because this image uses open-vidu 2.14.0, I had to downgrade the version of openvidu-browser to 2.14.0 for campatibility.
+    Note: Because this image uses open-vidu 2.14.0, I had to downgrade the version of openvidu-browser to 2.14.0 for campatibility.
 
 - For production:
-<br/>
 Please visit:
 
 [open vidu website](https://openvidu.io/)
+
 [Kurento website](https://www.kurento.org/)
 
 
-3) Run the project
+3. Run the project
 ```bash
 npm run serve
 ```
