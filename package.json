@@ -8,8 +8,8 @@
     "url": "http://aliafsah.com/"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/aliafsah1988/openvidu-insecure-vue.git"
+    "type": "git",
+    "url": "https://github.com/aliafsah1988/openvidu-insecure-vue.git"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -21,8 +21,31 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@vue/cli-plugin-babel": "^4.4.6",
+    "@vue/cli-plugin-eslint": "^4.4.6",
     "@vue/cli-service": "^4.1.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "eslint": "^7.4.0",
+    "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
   },
   "browserslist": [
     "> 1%",
