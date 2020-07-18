@@ -86,7 +86,7 @@ import { OpenVidu } from 'openvidu-browser'
 import UserVideoComponent from './components/UserVideoComponent'
 
 const OPENVIDU_SERVER_URL = 'https://localhost:4443'
-const OPENVIDU_SERVER_SECRET = 'YOUR_SECRET'
+const OPENVIDU_SERVER_SECRET = 'MY_SECRET'
 
 export default {
   name: 'App',

@@ -3,6 +3,12 @@ html {
 	min-height: 100%;
 }
 
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
 nav {
 	height: 50px;
 	width: 100%;
@@ -37,6 +43,10 @@ nav a:hover {
 
 nav i.fa:hover {
 	color: #a9a9a9;
+}
+
+nav .navbar-brand {
+	padding-left: 20px;
 }
 
 #main-container {
@@ -95,6 +105,7 @@ input.btn {
 	margin: 20px 0;
 	float: left;
 	color: #ccc;
+	padding-left: 10px;
 }
 
 .openvidu-logo {
@@ -178,12 +189,12 @@ a:hover .demo-logo {
 	color: #777777;
 	font-weight: bold;
 	border-bottom-right-radius: 4px;
+	width: 100%;
 }
 
-/*video {
-	width: 100%;
-	height: auto;
-}*/
+#main-video {
+	width: 25%;
+}
 
 #main-video p {
 	position: absolute;

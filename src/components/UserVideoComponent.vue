@@ -1,34 +1,33 @@
 <template>
-    <div class="streamcomponent">
-        <OpenViduVideoComponent :streamManager="streamManager" />
-        <div><p>{{ getNicknameTag() }}</p></div>
-    </div>
+  <div class="streamcomponent">
+    <OpenViduVideoComponent :stream-manager="streamManager" />
+    <div><p>{{ getNicknameTag() }}</p></div>
+  </div>
 </template>
 
 <script>
-import OpenViduVideoComponent from './OvVideo';
+import OpenViduVideoComponent from './OvVideo'
 
 export default {
-    components: {
-        OpenViduVideoComponent
-    },
-    props:{
-        streamManager: {
-            type: Object,
-            default() {
-                return null;
-            }
-        }
-    },
-    methods: {
-        getNicknameTag() {
-            // Gets the nickName of the user
-            return JSON.parse(this.streamManager.stream.connection.data).clientData;
-        }
+  components: {
+    OpenViduVideoComponent
+  },
+  props: {
+    streamManager: {
+      type: Object,
+      default() {
+        return null
+      }
     }
+  },
+  methods: {
+    getNicknameTag() {
+      // Gets the nickName of the user
+      return JSON.parse(this.streamManager.stream.connection.data).clientData
+    }
+  }
 }
 </script>
-
 
 <style scoped>
 video {
