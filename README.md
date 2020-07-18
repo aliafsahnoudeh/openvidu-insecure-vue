@@ -1,13 +1,37 @@
-[![License badge](https://img.shields.io/badge/license-Apache2-orange.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Documentation badge](https://readthedocs.org/projects/fiware-orion/badge/?version=latest)](http://openvidu.io/docs/home/)
-[![Docker badge](https://img.shields.io/docker/pulls/openvidu/openvidu-server-kms.svg)](https://hub.docker.com/r/openvidu/openvidu-server-kms)
-[![Support badge](https://img.shields.io/badge/support-sof-yellowgreen.svg)](https://groups.google.com/forum/#!forum/openvidu)
+# openvidu-insecure-vue
+A small and easy-to-use sample created with vue.js to start working with open vidu.
+<br/>
 
-[![][OpenViduLogo]](http://openvidu.io)
+## How to use
+1. Intall project packages with:
 
-openvidu-insecure-vue
-===
+```bash
+npm i
+```
+2. Run a server to work with:
+<br/>
+ This project is just a web client and you need to run kurento media server (KMS) and open vidu on top of that.
+<br/>
+- For development:
+<br/>
+There is an easy solution to run openvidu server + KMS with a docker.
+https://hub.docker.com/r/openvidu/openvidu-server-kms
+<br />
+Note: Because this image uses open-vidu 2.14.0, I had to downgrade the version of openvidu-browser to 2.14.0 for campatibility.
 
-Visit [openvidu.io/docs/tutorials/openvidu-insecure-vue/](http://openvidu.io/docs/tutorials/openvidu-insecure-vue/)
+- For production:
+<br/>
+Please visit:
 
-[OpenViduLogo]: https://secure.gravatar.com/avatar/5daba1d43042f2e4e85849733c8e5702?s=120
+[open vidu website](https://openvidu.io/)
+[Kurento website](https://www.kurento.org/)
+
+
+3) Run the project
+```bash
+npm run serve
+```
+## Dependencies
+- [vue.js](https://github.com/vuejs/vue): For building the app.
+- [openvidu-browser](https://github.com/OpenVidu/openvidu/tree/master/openvidu-browser): To connect with open vidu server.
+- [axios](https://github.com/axios/axios): To make RESTful requests.
