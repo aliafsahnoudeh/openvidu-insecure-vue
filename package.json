@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "openvidu-browser": "^2.14.0",
+    "openvidu-browser": "^2.15.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
