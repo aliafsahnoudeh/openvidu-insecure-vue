@@ -1,14 +1,23 @@
 {
   "name": "openvidu-insecure-vue",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.2.0",
+  "private": false,
+  "author": {
+    "name": "Ali Afsahnoudeh",
+    "email": "ali.afsah1988@gmail.com",
+    "url": "http://aliafsah.com/"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/aliafsah1988/openvidu-insecure-vue.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "openvidu-browser": "^2.11.0",
+    "openvidu-browser": "^2.14.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
