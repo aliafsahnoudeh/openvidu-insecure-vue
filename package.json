@@ -1,6 +1,6 @@
 {
   "name": "openvidu-insecure-vue",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": false,
   "author": {
     "name": "Ali Afsahnoudeh",
@@ -50,5 +50,15 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
+  ],
+  "keywords": [
+    "openvidu",
+    "open vidu",
+    "openvidu web",
+    "open vidu web",
+    "openvidu vue",
+    "open vidu vue",
+    "openvidu vue.js",
+    "open vidu vue.js"
   ]
 }
