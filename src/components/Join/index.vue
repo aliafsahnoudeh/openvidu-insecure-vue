@@ -12,7 +12,7 @@
             id="userName"
             class="form-control"
             type="text"
-            :value="myUserName"
+            :value="username"
             required
             @change="handleChangeUserName"
           >
@@ -23,7 +23,7 @@
             id="sessionId"
             class="form-control"
             type="text"
-            :value="mySessionId"
+            :value="sessionId"
             required
             @change="handleChangeSessionId"
           >
@@ -40,35 +40,47 @@
 import { OpenVidu } from 'openvidu-browser'
 import axios from 'axios'
 import config from '../../config'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'Join',
+  computed: {
+    ...mapState('session', [
+      'OV',
+      'session',
+      'subscribers',
+      'username',
+      'sessionId'
+    ])
+  },
   methods: {
+    ...mapActions('session', [
+      'setSessionId',
+      'setUsername',
+      'setOV',
+      'setSession',
+      'setPublisher',
+      'setMainStreamManager',
+      'deleteSubscriber'
+    ]),
     joinSession() {
       // --- 1) Get an OpenVidu object ---
-
-      this.OV = new OpenVidu()
-
+      this.setOV(new OpenVidu())
       // --- 2) Init a session ---
-      this.session = this.OV.initSession()
-      var mySession = this.session
+      this.setSession(this.OV.initSession())
 
       // --- 3) Specify the actions when events take place in the session ---
-
       // On every new Stream received...
-      mySession.on('streamCreated', (event) => {
+      this.session.on('streamCreated', (event) => {
+        console.log(`streamCreated`)
         // Subscribe to the Stream to receive it. Second parameter is undefined
         // so OpenVidu doesn't create an HTML video by its own
-        var subscriber = mySession.subscribe(event.stream, undefined)
-        var subscribers = this.subscribers
-        subscribers.push(subscriber)
-
-        // Update the state with the new subscribers
-        this.subscribers = subscribers
+        var subscriber = this.session.subscribe(event.stream, undefined)
+        this.subscribers.push(subscriber)
       })
 
       // On every Stream destroyed...
-      mySession.on('streamDestroyed', (event) => {
+      this.session.on('streamDestroyed', (event) => {
         // Remove the stream from 'subscribers' array
         this.deleteSubscriber(event.stream.streamManager)
       })
@@ -80,10 +92,10 @@ export default {
       this.getToken().then((token) => {
         // First param is the token got from OpenVidu Server. Second param can be retrieved by every user on event
         // 'streamCreated' (property Stream.connection.data), and will be appended to DOM as the user's nickname
-        mySession
+        this.session
           .connect(
             token,
-            { clientData: this.myUserName }
+            { clientData: this.username }
           )
           .then(() => {
             // --- 5) Get your own camera stream ---
@@ -103,11 +115,11 @@ export default {
 
             // --- 6) Publish your stream ---
 
-            mySession.publish(publisher)
+            this.session.publish(publisher)
 
             // Set the main video in the page to display our webcam and store our Publisher
-            this.mainStreamManager = publisher
-            this.publisher = publisher
+            this.setPublisher(publisher)
+            this.setMainStreamManager(publisher)
           })
           .catch((error) => {
             console.log('There was an error connecting to the session:', error.code, error.message)
@@ -115,18 +127,10 @@ export default {
       })
     },
     handleChangeSessionId(e) {
-      this.mySessionId = e.target.value
+      this.setSessionId(e.target.value)
     },
     handleChangeUserName(e) {
-      this.myUserName = e.target.value
-    },
-    deleteSubscriber(streamManager) {
-      const subscribers = this.subscribers
-      const index = subscribers.indexOf(streamManager, 0)
-      if (index > -1) {
-        subscribers.splice(index, 1)
-        this.subscribers = subscribers
-      }
+      this.setUsername(e.target.value)
     },
     /**
      * --------------------------
@@ -140,11 +144,13 @@ export default {
      *   3) The token must be consumed in Session.connect() method
      */
     getToken() {
-      return this.createSession(this.mySessionId).then((sessionId) => this.createToken(sessionId))
+      return this.createSession().then((id) => this.createToken(id))
     },
-    createSession(sessionId) {
+    createSession() {
       return new Promise((resolve, reject) => {
-        var data = JSON.stringify({ customSessionId: sessionId })
+        var data = JSON.stringify({ customSessionId: this.sessionId })
+        console.log(`createSession: ${data}`)
+
         axios
           .post(config.OPENVIDU_SERVER_URL + '/api/sessions', data, {
             headers: {
@@ -160,7 +166,7 @@ export default {
             console.error(response)
             var error = Object.assign({}, response)
             if (error.response.status === 409) {
-              resolve(sessionId)
+              resolve(this.sessionId)
             } else {
               console.log(error)
               console.warn(
@@ -185,6 +191,7 @@ export default {
     },
     createToken(sessionId) {
       return new Promise((resolve, reject) => {
+        console.log(`createToken: ${sessionId}`)
         var data = JSON.stringify({ session: sessionId })
         axios
           .post(config.OPENVIDU_SERVER_URL + '/api/tokens', data, {

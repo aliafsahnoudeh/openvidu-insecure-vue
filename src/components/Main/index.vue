@@ -1,15 +1,14 @@
 <template>
   <div id="app">
-    <div class="container">
-      <Join v-if="!session" />
-      <Session v-else />
-    </div>
+    <Join v-if="!session" />
+    <Session v-else />
   </div>
 </template>
 
 <script>
 import Join from '@/components/Join'
 import Session from '@/components/Session'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Main',
@@ -17,15 +16,10 @@ export default {
     Join,
     Session
   },
-  data() {
-    return {
-      mySessionId: 'SessionA',
-      myUserName: 'Participant' + Math.floor(Math.random() * 100),
-      session: undefined,
-      mainStreamManager: undefined,
-      publisher: undefined,
-      subscribers: []
-    }
+  computed: {
+    ...mapState('session', [
+      'session'
+    ])
   }
 }
 </script>

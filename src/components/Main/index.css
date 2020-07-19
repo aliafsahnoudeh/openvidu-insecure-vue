@@ -1,3 +1,9 @@
+#app {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
 nav {
 	height: 50px;
 	width: 100%;
@@ -152,7 +158,7 @@ a:hover .demo-logo {
 }
 
 #session-header {
-	margin-bottom: 20px;
+	height: 20%;
 }
 
 #session-title {
@@ -162,6 +168,12 @@ a:hover .demo-logo {
 #buttonLeaveSession {
 	float: right;
 	margin-top: 20px;
+}
+
+#video-container {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 #video-container video {
@@ -182,7 +194,7 @@ a:hover .demo-logo {
 }
 
 #main-video {
-	width: 25%;
+	width: 20%;
 }
 
 #main-video p {
@@ -200,6 +212,14 @@ a:hover .demo-logo {
 
 #main-video video {
 	cursor: initial;
+}
+
+#session {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	margin: 0;
+	padding: 10px;
 }
 
 #session img {
