@@ -1,8 +1,11 @@
+import generator from '@/utils/generator.js'
+import config from '@/config'
+
 const app = {
   namespaced: true,
   state: {
-    sessionId: 'SessionA',
-    username: 'Participant' + Math.floor(Math.random() * 100),
+    sessionId: config.DEFAULT_SESSION_NAME,
+    username: generator.generateParticipantName(),
     OV: null,
     session: undefined,
     mainStreamManager: undefined,
@@ -58,8 +61,8 @@ const app = {
       state.OV = null
       state.session = undefined
       state.subscribers = []
-      state.sessionId = 'SessionA'
-      state.myUserName = 'Participant' + Math.floor(Math.random() * 100)
+      state.sessionId = config.DEFAULT_SESSION_NAME
+      state.myUserName = generator.generateParticipantName()
       state.mainStreamManager = undefined
       state.publisher = undefined
     },
