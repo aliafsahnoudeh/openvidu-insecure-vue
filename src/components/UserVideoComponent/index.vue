@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import OpenViduVideoComponent from './OvVideo'
+import OpenViduVideoComponent from '@/components/OvVideo'
 
 export default {
   components: {

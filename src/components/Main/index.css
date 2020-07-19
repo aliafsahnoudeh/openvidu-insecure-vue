@@ -1,52 +1,7 @@
-html {
-	position: relative;
-	min-height: 100%;
-}
-
-body {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-}
-
-nav {
-	height: 50px;
-	width: 100%;
-	z-index: 1;
-	background-color: #4d4d4d !important;
-	border-color: #4d4d4d !important;
-	border-top-right-radius: 0 !important;
-	border-top-left-radius: 0 !important;
-}
-
-.navbar-header {
-	width: 100%;
-}
-
-.nav-icon {
-	padding: 5px 15px 5px 15px;
-	float: right;
-}
-
-nav a {
-	color: #ccc !important;
-}
-
-nav i.fa {
-	font-size: 40px;
-	color: #ccc;
-}
-
-nav a:hover {
-	color: #a9a9a9 !important;
-}
-
-nav i.fa:hover {
-	color: #a9a9a9;
-}
-
-nav .navbar-brand {
-	padding-left: 20px;
+#app {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
 #main-container {
@@ -163,7 +118,7 @@ a:hover .demo-logo {
 }
 
 #session-header {
-	margin-bottom: 20px;
+	height: 20%;
 }
 
 #session-title {
@@ -173,6 +128,12 @@ a:hover .demo-logo {
 #buttonLeaveSession {
 	float: right;
 	margin-top: 20px;
+}
+
+#video-container {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 #video-container video {
@@ -193,7 +154,7 @@ a:hover .demo-logo {
 }
 
 #main-video {
-	width: 25%;
+	width: 20%;
 }
 
 #main-video p {
@@ -211,6 +172,14 @@ a:hover .demo-logo {
 
 #main-video video {
 	cursor: initial;
+}
+
+#session {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	margin: 0;
+	padding: 10px;
 }
 
 #session img {

@@ -1,0 +1,25 @@
+const getters = {
+  sidebar: state => state.app.sidebar,
+  navbar: state => state.app.navbar,
+  token: state => state.user.token,
+  name: state => state.user.name,
+  status: state => state.user.status,
+  roles: state => state.user.roles,
+  userId: state => state.user.userId,
+  displayName: state => state.user.displayName,
+  setting: state => state.user.setting,
+  session_name: state => state.session.session_name,
+  session_id: state => state.session.session_id,
+  schedule_id: state => state.session.schedule_id,
+  participants: state => state.session.participants,
+  streams: state => state.session.streams,
+  session: state => state.session.session,
+  OV: state => state.session.OV,
+  publisher: state => state.session.publisher,
+  amIModerator: state => state.session.amIModerator,
+  moderator: state => state.session.moderator,
+  pinned_count: state => state.session.pinned_count,
+  subscribedStreams: state => state.session.subscribedStreams,
+  conferenceState: state => state.user.conferenceState
+}
+export default getters
