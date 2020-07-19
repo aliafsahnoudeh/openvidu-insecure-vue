@@ -1,15 +1,18 @@
 <template>
   <div id="app">
+    <Navbar />
     <Main />
   </div>
 </template>
 
 <script>
 import Main from '@/components/Main'
+import Navbar from '@/components/Navbar'
 
 export default {
   name: 'App',
   components: {
+    Navbar,
     Main
   }
 }
