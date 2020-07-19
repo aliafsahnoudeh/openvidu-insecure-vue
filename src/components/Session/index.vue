@@ -32,7 +32,7 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
-import UserVideoComponent from '../UserVideoComponent'
+import UserVideoComponent from '@/components/UserVideoComponent'
 
 export default {
   name: 'Session',
@@ -73,7 +73,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

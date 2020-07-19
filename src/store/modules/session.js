@@ -11,35 +11,27 @@ const app = {
   },
   actions: {
     setSessionId({ commit }, sessionId) {
-      console.log(`setSessionId`)
       commit('SET_SESSION_ID', sessionId)
     },
     setUsername({ commit }, username) {
-      console.log(`setUsername`)
       commit('SET_USER_NAME', username)
     },
     setOV({ commit }, OV) {
-      console.log(`setOV`)
       commit('SET_OV', OV)
     },
     setSession({ commit }, session) {
-      console.log(`setSession`)
       commit('SET_SESSION', session)
     },
     setPublisher({ commit }, publisher) {
-      console.log(`setPublisher`)
       commit('SET_PUBLISHER', publisher)
     },
     setMainStreamManager({ commit }, mainStreamManager) {
-      console.log(`setMainStreamManager`)
       commit('SET_MAIN_STREAM_MANAGER', mainStreamManager)
     },
     leave({ commit }) {
-      console.log(`leave`)
       commit('LEAVE')
     },
     deleteSubscriber({ commit }, streamManager) {
-      console.log(`deleteSubscriber`)
       commit('DELETE_SUBSCRIBER', streamManager)
     }
   },
