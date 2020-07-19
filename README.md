@@ -12,7 +12,7 @@ This project is just a web client and you need to run kurento media server (KMS)
 
 - For development: There is an easy solution to run openvidu server + KMS with a docker. https://hub.docker.com/r/openvidu/openvidu-server-kms
 
-Note: Because this image uses open-vidu 2.14.0, I had to downgrade the version of openvidu-browser to 2.14.0 for campatibility reasons. When you switching between master and dev branches, that will make a problem to build.
+Note: Because this image uses open-vidu 2.14.0, I had to downgrade the version of openvidu-browser to 2.14.0 for campatibility reasons. When you're switching between master and dev branches, that will make a problem to build.
 
 - For production:
 Please visit:
