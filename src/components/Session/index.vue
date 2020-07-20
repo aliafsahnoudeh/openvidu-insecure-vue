@@ -9,7 +9,7 @@
         class="btn btn-large btn-danger"
         type="button"
         value="Leave session"
-        @click="leaveSession"
+        @click="leave"
       >
     </div>
 
@@ -50,25 +50,14 @@ export default {
   },
   methods: {
     ...mapActions('session', [
-      'leave'
+      'leave',
+      'setMainStream'
     ]),
     onbeforeunload(event) {
-      this.leaveSession()
-    },
-    leaveSession() {
-      // --- 7) Leave the session by calling 'disconnect' method over the Session object ---
-
-      if (this.session) {
-        this.session.disconnect()
-      }
-
-      // Empty all properties...
       this.leave()
     },
     handleMainVideoStream(stream) {
-      if (this.mainStreamManager !== stream) {
-        this.mainStreamManager = stream
-      }
+      this.setMainStream(stream)
     }
   }
 }

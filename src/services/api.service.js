@@ -36,6 +36,7 @@ class ApiService {
           console.error(response)
           const error = Object.assign({}, response)
           if (error.response.status === 409) {
+            // means session already created, so you're good to go
             resolve(sessionId)
           } else {
             console.log(error)
